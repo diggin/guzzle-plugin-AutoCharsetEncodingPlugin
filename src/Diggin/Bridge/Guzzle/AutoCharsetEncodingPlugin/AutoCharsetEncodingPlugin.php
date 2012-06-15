@@ -1,5 +1,5 @@
 <?php
-namespace Diggin\Bridge\Guzzle\AutoCharsetEncodingPlugin
+namespace Diggin\Bridge\Guzzle\AutoCharsetEncodingPlugin;
 
 use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
