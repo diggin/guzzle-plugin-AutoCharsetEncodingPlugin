@@ -1,6 +1,7 @@
 <?php
 namespace Diggin\Bridge\Guzzle\AutoCharsetEncodingPlugin
 
+use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Diggin\Http\Charset\Filter;
 use Diggin\Http\Charset\Front\UrlRegex;
