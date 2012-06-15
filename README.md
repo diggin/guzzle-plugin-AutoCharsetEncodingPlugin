@@ -1,7 +1,7 @@
 Diggin - Guzzle AutoCharsetEncoding plugin
 ==========================================
 
-A bridge Diggin_Http_Charse & Guzzle
+A bridge Diggin_Http_Charset & Guzzle
 This plugin enable auto-encode to UTF-8.
 
 USAGE
@@ -12,7 +12,7 @@ USAGE
 ``` php
 <?php
 
-use Diggin\Bridge\Guzzle\autoCharsetEncodingPlugin\AutoCharsetEncodingPlugin;
+use Diggin\Bridge\Guzzle\AutoCharsetEncodingPlugin\AutoCharsetEncodingPlugin;
 
 $autoCharsetEncodingPlugin = new AutoCharsetEncodingPlugin;
 
