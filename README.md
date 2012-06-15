@@ -1,0 +1,3 @@
+Diggin - Guzzle AutoCharsetEncoding plugin
+==========================================
+

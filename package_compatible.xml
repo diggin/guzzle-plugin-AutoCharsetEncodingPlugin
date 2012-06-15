@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
+ <name>Diggin_Bridge_Guzzle_AutoCharsetEncodingPlugin</name>
+ <channel>pear.diggin.musicrider.com</channel>
+ <lead>
+  <name>sasezaki</name>
+  <user>sasezaki</user>
+  <email>sasezaki@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-06-16</date>
+ <time>01:28:03</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>devel</release>
+  <api>alpha</api>
+ </stability>
+ <license>New BSD License</license>
+ <contents>
+  <dir name="/">
+   <file role="php" name="php/Diggin/Bridge/Guzzle/AutoCharsetEncodingPlugin/AutoCharsetEncodingPlugin.php"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.8</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease>
+  <filelist>
+   <install name="php/Diggin/Bridge/Guzzle/AutoCharsetEncodingPlugin/AutoCharsetEncodingPlugin.php" as="Diggin/Bridge/Guzzle/AutoCharsetEncodingPlugin/AutoCharsetEncodingPlugin.php"/>
+  </filelist>
+ </phprelease>
+</package>
