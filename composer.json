@@ -6,7 +6,7 @@
         "guzzle",
         "charset",
         "goutte",
-        "symfony"
+        "encoding"
     ],
     "license":"BSD-3-Clause",
     "authors":[
