@@ -34,6 +34,9 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
     {
         if ($res = $event['request']->getResponse()) {
             $contentType = $res->getHeader('content-type', true);
+            if (!preg_match('#^text/html#i', $contentType)) {
+                return;
+            }
             $bodyEntity = $res->getBody(false);
             $body = $this->getCharsetFront()
                 ->convert((string)$bodyEntity, array(
