@@ -5,19 +5,14 @@ use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Diggin\Http\Charset\Filter;
 use Diggin\Http\Charset\Front\UrlRegex;
+use Diggin\Http\Charset\Front\DocumentConverter;
 
 class AutoCharsetEncodingPlugin implements EventSubscriberInterface
 {
+    /**
+     * @var DocumentConverter
+     */
     protected $charset_front;
-
-    public function getCharsetFront()
-    {
-        if (!$this->charset_front) {
-            $this->charset_front = new UrlRegex;
-        }
-
-        return $this->charset_front;
-    }
 
     /**
      * {@inheritdoc}
@@ -46,5 +41,23 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
             $res->setHeader('content-type', Filter::replaceHeaderCharset($contentType));
             $bodyEntity->write($body);
         }
+    }
+
+    /**
+     * @return DocumentConverter
+     */
+    public function getCharsetFront()
+    {
+        if (!$this->charset_front) {
+            $this->charset_front = new UrlRegex;
+        }
+
+        return $this->charset_front;
+    }
+
+    public function setCharsetFront(DocumentConverter $charset_front)
+    {
+        $this->charset_front = $charset_front;
+        return $this;
     }
 }
