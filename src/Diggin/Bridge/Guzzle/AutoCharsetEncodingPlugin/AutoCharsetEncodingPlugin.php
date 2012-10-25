@@ -39,6 +39,7 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
                     'url' => $event['request']->getUrl()
                 ));
             $res->setHeader('content-type', Filter::replaceHeaderCharset($contentType));
+            $bodyEntity->seek(0, SEEK_SET);
             $bodyEntity->write($body);
         }
     }
