@@ -19,7 +19,7 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return array('request.complete' => 'onRequestComplete');
+        return array('request.complete' => array('onRequestComplete', 255));
     }
 
     /**
@@ -29,7 +29,8 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
     {
         if ($res = $event['request']->getResponse()) {
             $contentType = $res->getHeader('content-type', true);
-            if (!preg_match('#^text/html#i', $contentType)) {
+            $redirect = $res->getHeader('Location');
+            if (!empty($redirect) || !preg_match('#^text/html#i', $contentType)) {
                 return;
             }
             $bodyEntity = $res->getBody(false);
