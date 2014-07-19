@@ -1,11 +1,14 @@
-Diggin - Guzzle AutoCharsetEncoding plugin
-==========================================
+Guzzle Plugin - auto convert charset encoding
+======================================================
 
-A bridge Diggin_Http_Charset & Guzzle
-This plugin enable auto-encode to UTF-8.
+A bridge Diggin_Http_Charset & Guzzle3
+This plugin enable auto convert charset encoding to UTF-8.
 
-USAGE
------
+### Guzzle4
+If you looking for Guzzle4.
+  - https://github.com/sasezaki/guzzle4-charset-subscriber
+
+### USAGE
 
 - use in Goutte
 
