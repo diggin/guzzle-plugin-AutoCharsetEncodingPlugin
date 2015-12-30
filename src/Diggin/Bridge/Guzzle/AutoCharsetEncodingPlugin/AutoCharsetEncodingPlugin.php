@@ -14,7 +14,7 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
      */
     protected $charset_front;
     /**
-     * @var array
+     * @var string
      */
     private $contentTypes;
 
