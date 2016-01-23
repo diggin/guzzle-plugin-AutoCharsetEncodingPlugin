@@ -16,15 +16,17 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
     /**
      * @var string[]
      */
-    private $contentTypes = array('text/html');
+    private $contentTypes;
 
     /**
      * @param string[] $contentTypes
      */
-    public function __construct($contentTypes = array()) {
-        if (!empty($contentTypes)) {
-            $this->contentTypes = '[' . implode('|', $contentTypes) . ']';
+    public function __construct($contentTypes = array('text/html')) {
+        if (!is_array($contentTypes) || empty($contentTypes)) {
+            throw new \InvalidArgumentException('Invalid content-type');
         }
+
+        $this->contentTypes = '[' . implode('|', $contentTypes) . ']';
     }
 
     /**
