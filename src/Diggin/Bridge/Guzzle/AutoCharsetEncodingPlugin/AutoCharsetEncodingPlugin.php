@@ -14,15 +14,17 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
      */
     protected $charset_front;
     /**
-     * @var string
+     * @var string[]
      */
-    private $contentTypes;
+    private $contentTypes = array('text/html');
 
     /**
-     * @param array $contentTypes
+     * @param string[] $contentTypes
      */
-    public function __construct($contentTypes = array('text/html')) {
-        $this->contentTypes = '[' . implode('|', $contentTypes) . ']';
+    public function __construct($contentTypes = array()) {
+        if (!empty($contentTypes)) {
+            $this->contentTypes = '[' . implode('|', $contentTypes) . ']';
+        }
     }
 
     /**
