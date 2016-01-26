@@ -1,11 +1,11 @@
 <?php
 namespace Diggin\Bridge\Guzzle\AutoCharsetEncodingPlugin;
 
+use Diggin\Http\Charset\Filter;
+use Diggin\Http\Charset\Front\DocumentConverter;
+use Diggin\Http\Charset\Front\UrlRegex;
 use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Diggin\Http\Charset\Filter;
-use Diggin\Http\Charset\Front\UrlRegex;
-use Diggin\Http\Charset\Front\DocumentConverter;
 
 class AutoCharsetEncodingPlugin implements EventSubscriberInterface
 {
@@ -13,6 +13,21 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
      * @var DocumentConverter
      */
     protected $charset_front;
+    /**
+     * @var string[]
+     */
+    private $contentTypes;
+
+    /**
+     * @param string[] $contentTypes
+     */
+    public function __construct($contentTypes = array('text/html')) {
+        if (!is_array($contentTypes) || empty($contentTypes)) {
+            throw new \InvalidArgumentException('Invalid content-type');
+        }
+
+        $this->contentTypes = '[' . implode('|', $contentTypes) . ']';
+    }
 
     /**
      * {@inheritdoc}
@@ -30,7 +45,7 @@ class AutoCharsetEncodingPlugin implements EventSubscriberInterface
         if ($res = $event['request']->getResponse()) {
             $contentType = $res->getHeader('content-type', true);
             $redirect = $res->getHeader('Location');
-            if (!empty($redirect) || !preg_match('#^text/html#i', $contentType)) {
+            if (!empty($redirect) || !preg_match('#^' . $this->contentTypes . '#i', $contentType)) {
                 return;
             }
             $bodyEntity = $res->getBody(false);
